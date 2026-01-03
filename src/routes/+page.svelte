@@ -13,10 +13,10 @@
 			<p class="text-gray-600">Welcome, {data.session.user?.email}!</p>
 			<div class="space-x-4">
 				<a
-					href="/protected"
+					href="/calendar"
 					class="inline-block px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
 				>
-					Go to Protected Page
+					Go to Calendar Page
 				</a>
 			</div>
 		</div>

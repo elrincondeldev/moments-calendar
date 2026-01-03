@@ -39,6 +39,7 @@
 	"dependencies": {
 		"@supabase/ssr": "^0.8.0",
 		"@supabase/supabase-js": "^2.89.0",
+		"dayjs": "^1.11.19",
 		"oidc-client-ts": "^3.4.1"
 	}
 }

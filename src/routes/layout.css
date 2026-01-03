@@ -1,2 +1,17 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+.gradient-text {
+	background: #020024;
+	background: linear-gradient(
+		90deg,
+		rgba(2, 0, 36, 1) 0%,
+		rgba(44, 44, 150, 1) 18%,
+		rgba(6, 70, 161, 1) 62%,
+		rgba(160, 249, 250, 1) 94%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	color: transparent;
+}
