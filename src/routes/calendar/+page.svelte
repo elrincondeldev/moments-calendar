@@ -3,6 +3,10 @@
 	import { goto } from '$app/navigation';
 	import { createCalendar } from '$lib/hooks/createCalendar';
 	import dayjs from 'dayjs';
+	import DeathCalendar from '../../components/DeathCalendar.svelte';
+	import type { PageData } from './$types';
+
+	let { data } = $props<{ data: PageData }>();
 
 	let currentDate = $state(dayjs());
 
@@ -32,8 +36,11 @@
 		</div>
 
 		<div class="bg-white shadow rounded-lg p-6">
-			<h2 class="text-xl font-semibold mb-4">Calendar</h2>
-			<p class="text-gray-600 mb-4">This is the calendar page.</p>
+			{#if data.profile?.date_of_birth}
+				<DeathCalendar dateOfBirth={data.profile.date_of_birth} />
+			{:else}
+				<p class="text-red-600">Please complete your profile to view the calendar.</p>
+			{/if}
 		</div>
 	</div>
 </div>

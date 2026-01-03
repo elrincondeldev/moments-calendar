@@ -1,8 +1,23 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import type { LayoutServerData } from './$types';
+	import { onMount } from 'svelte';
+	import type { PageData } from './$types';
+	import { getCurrentUserProfile } from '$lib/profile';
 
-	let { data } = $props<{ data: LayoutServerData }>();
+	let { data } = $props<{ data: PageData }>();
+
+	onMount(async () => {
+		if (data.session) {
+			const profile = await getCurrentUserProfile();
+			if (!profile?.onboarding_completed) {
+				goto('/onboarding');
+			} else {
+				goto('/calendar');
+			}
+		} else {
+			goto('/calendar');
+		}
+	});
 </script>
 
 <div class="min-h-screen flex flex-col items-center justify-center p-8">

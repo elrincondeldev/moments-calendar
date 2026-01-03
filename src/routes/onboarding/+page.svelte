@@ -19,10 +19,7 @@
 
 	onMount(async () => {
 		profile = await getCurrentUserProfile();
-		if (profile) {
-			formData.full_name = profile.full_name || '';
-			formData.date_of_birth = profile.date_of_birth || '';
-		}
+		if (profile?.onboarding_completed) goto('/calendar');
 	});
 
 	async function handleSubmit() {
