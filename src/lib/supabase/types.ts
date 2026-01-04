@@ -32,6 +32,35 @@ export interface Database {
 					updated_at?: string;
 				};
 			};
+			moments: {
+				Row: {
+					id: string;
+					user_id: string;
+					title: string;
+					description: string | null;
+					date: string;
+					created_at: string;
+					updated_at: string;
+				};
+				Insert: {
+					id?: string;
+					user_id: string;
+					title: string;
+					description?: string | null;
+					date: string;
+					created_at?: string;
+					updated_at?: string;
+				};
+				Update: {
+					id?: string;
+					user_id?: string;
+					title?: string;
+					description?: string | null;
+					date?: string;
+					created_at?: string;
+					updated_at?: string;
+				};
+			};
 			[key: string]: {
 				Row: Record<string, unknown>;
 				Insert: Record<string, unknown>;

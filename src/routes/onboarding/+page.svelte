@@ -1,12 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
-	import {
-		getCurrentUserProfile,
-		updatePersonalInfo,
-		completeOnboarding,
-		type Profile
-	} from '$lib/profile';
+	import { getCurrentUserProfile, updatePersonalInfo, type Profile } from '$lib/profile';
 
 	let profile: Profile | null = null;
 	let loading = false;
@@ -33,8 +28,7 @@
 			});
 
 			if (success) {
-				await completeOnboarding();
-				goto('/calendar');
+				goto('/storytelling');
 			} else {
 				error = 'Error al actualizar el perfil';
 			}
